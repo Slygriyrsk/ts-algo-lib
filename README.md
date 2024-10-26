@@ -15,6 +15,11 @@ cd ts-algo-lib
 npm install
 ```
 
+3. Alternatively, you can install it directly from npm:
+```shellscript
+npm install ts-algo-lib
+```
+
 ## Available Data Structures
 
 - Binary Search Tree
@@ -23,7 +28,7 @@ npm install
 ## Usage
 
 ```typescript
-import { BinarySearchTree, LinkedList } from './src';
+import { BinarySearchTree, LinkedList } from 'ts-algo-lib';
 
 // Binary Search Tree
 const bst = new BinarySearchTree<number>();
