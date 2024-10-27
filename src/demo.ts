@@ -1,37 +1,52 @@
-import { Comparable } from "./interfaces/Comparable";
-import { LinkedList } from "./lists/LinkedList";
-import { BinarySearchTree } from "./trees/BinarySearchTree";
+import { Stack } from './stack/Stack';
+import { Queue } from './queue/Queue';
+import { PriorityQueue } from './queue/PriorityQueue';
+import { BinarySearchTree } from './trees/BinarySearchTree';
+import { LinkedList } from './lists/LinkedList';
 
-class NumberWrapper implements Comparable<NumberWrapper> {
-    constructor (
-        public value: number,
-    )
-    {}
+console.log('Stack Demo:');
+const stack = new Stack<number>();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+console.log('Stack:', stack.toString());
+console.log('Pop:', stack.pop());
+console.log('Stack after pop:', stack.toString());
 
-    compareTo(other: NumberWrapper): number {
-        return this.value - other.value;
-    }
-}
+console.log('\nQueue Demo:');
+const queue = new Queue<string>();
+queue.enqueue('a');
+queue.enqueue('b');
+queue.enqueue('c');
+console.log('Queue:', queue.toString());
+console.log('Dequeue:', queue.dequeue());
+console.log('Queue after dequeue:', queue.toString());
 
-// Binary Search Tree
-console.log("Binary Search Tree Demo:");
-const bst = new BinarySearchTree<NumberWrapper>();
-bst.insert(new NumberWrapper(5));
-bst.insert(new NumberWrapper(3));
-bst.insert(new NumberWrapper(7));
-bst.insert(new NumberWrapper(1));
-bst.insert(new NumberWrapper(9));
+console.log('\nPriority Queue Demo:');
+const pq = new PriorityQueue<string>();
+pq.enqueue('Low', 3);
+pq.enqueue('High', 1);
+pq.enqueue('Medium', 2);
+console.log('Priority Queue:', pq.toString());
+console.log('Dequeue:', pq.dequeue());
+console.log('Priority Queue after dequeue:', pq.toString());
 
-console.log("Search for 3: ", bst.search(new NumberWrapper(3)));
-console.log("Inorder Traversal: ", bst.inOrderTraversal().map(callback => callback.value));
+console.log('\nBinary Search Tree Demo:');
+const bst = new BinarySearchTree<number>();
+bst.insert(5);
+bst.insert(3);
+bst.insert(7);
+bst.insert(1);
+bst.insert(9);
+console.log('BST in-order traversal:', bst.inOrderTraversal());
+console.log('BST search for 7:', bst.search(7));
+console.log('BST search for 6:', bst.search(6));
 
-// Linked List
-console.log("\nLinked List Demo:");
-const list = new LinkedList<number>();
-list.append(1);
-list.append(2);
-list.append(3);
-list.prepend(0);
-list.delete(2);
-
-console.log("Linked List:", list.toString());
+console.log('\nLinked List Demo:');
+const linkedList = new LinkedList<number>();
+linkedList.append(1);
+linkedList.append(2);
+linkedList.append(3);
+console.log('Linked List:', linkedList.toString());
+linkedList.delete(2);
+console.log('Linked List after deleting 2:', linkedList.toString());

@@ -1,7 +1,6 @@
-import { Comparable } from '../interfaces/Comparable';
 import { BinaryTreeNode } from './BinaryTreeNode';
 
-export class BinarySearchTree<T extends Comparable<T>> {
+export class BinarySearchTree<T extends number> {
   private root: BinaryTreeNode<T> | null = null;
 
   insert(value: T): void {
@@ -16,9 +15,9 @@ export class BinarySearchTree<T extends Comparable<T>> {
     // comparing the value to be inserted,
     // if less than root val then it should be inserted left
     // else greater than root val then at right
-    if (value.compareTo(node.value) < 0) {
+    if (value < node.value) {
       node.left = this.insertNode(node.left, value);
-    } else if (value.compareTo(node.value) > 0) {
+    } else if (value > node.value) {
       node.right = this.insertNode(node.right, value);
     }
 
@@ -34,11 +33,11 @@ export class BinarySearchTree<T extends Comparable<T>> {
       return false;
     }
 
-    if (value.compareTo(node.value) === 0) {
+    if (value === node.value) {
       return true;
     }
 
-    if (value.compareTo(node.value) < 0) { // if value is less than root then search at the left subtree
+    if (value < node.value) { // if value is less than root then search at the left subtree
       return this.searchNode(node.left, value);
     }
 
