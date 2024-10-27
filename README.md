@@ -24,11 +24,14 @@ npm install ts-algo-lib
 
 - Binary Search Tree
 - Linked List
+- Stack
+- Queue
+- Priority Queue
 
 ## Usage
 
 ```typescript
-import { BinarySearchTree, LinkedList } from 'ts-algo-lib';
+import { BinarySearchTree, LinkedList, Stack, Queue, PriorityQueue } from 'ts-algo-lib';
 
 // Binary Search Tree
 const bst = new BinarySearchTree<number>();
@@ -44,6 +47,30 @@ list.append(1);
 list.append(2);
 list.append(3);
 console.log(list.toString()); // "1,2,3"
+
+// Stack
+const stack = new Stack<number>();
+stack.push(1);
+stack.push(2);
+stack.push(3);
+console.log(stack.pop()); // 3
+console.log(stack.peek()); // 2
+
+// Queue
+const queue = new Queue<string>();
+queue.enqueue('a');
+queue.enqueue('b');
+queue.enqueue('c');
+console.log(queue.dequeue()); // 'a'
+console.log(queue.front()); // 'b'
+
+// Priority Queue
+const pq = new PriorityQueue<string>();
+pq.enqueue('Low', 3);
+pq.enqueue('High', 1);
+pq.enqueue('Medium', 2);
+console.log(pq.dequeue()); // 'High'
+console.log(pq.front()); // 'Medium'
 ```
 
 ## Running Tests
@@ -53,7 +80,7 @@ To run the test suite:
 ```shellscript
 npm test
 ```
-![Screenshot 2024-10-26 195638](https://github.com/user-attachments/assets/3db92d17-99e3-4119-90bd-b3ebcb1301a5)
+![Screenshot 2024-10-27 231634](https://github.com/user-attachments/assets/edb0b528-469a-4aa8-95b9-c763e20003c2)
 
 ## Running Demo
 
@@ -62,7 +89,7 @@ To run the demo script:
 ```shellscript
 npm run demo
 ```
-![Screenshot 2024-10-26 195650](https://github.com/user-attachments/assets/b6f402c7-c115-47e9-825a-2c0baf98662e)
+![Screenshot 2024-10-27 231605](https://github.com/user-attachments/assets/7a5240c0-b552-4054-8306-a61d377c27fe)
 
 ## Building the Project
 
@@ -81,16 +108,29 @@ ts-algo-lib/
 ├── src/
 │   ├── interfaces/
 │   │   └── Comparable.ts
+|   |   └── Collection.ts
 │   ├── trees/
 │   │   ├── BinarySearchTree.ts
 │   │   └── BinaryTreeNode.ts
 │   ├── lists/
 │   │   └── LinkedList.ts
+│   ├── stack/
+│   │   └── Stack.ts
+│   ├── queue/
+│   │   ├── Queue.ts
+│   │   └── PriorityQueue.ts
 │   ├── demo.ts
 │   └── index.ts
 ├── tests/
-│   ├── BinarySearchTree.test.ts
-│   └── LinkedList.test.ts
+│   ├── trees/
+│   │   └── BinarySearchTree.test.ts
+│   ├── lists/
+│   │   └── LinkedList.test.ts
+│   ├── stack/
+│   │   └── Stack.test.ts
+│   └── queue/
+│       ├── Queue.test.ts
+│       └── PriorityQueue.test.ts
 ├── package.json
 ├── tsconfig.json
 ├── jest.config.js
