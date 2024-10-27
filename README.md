@@ -6,7 +6,7 @@ This library provides implementations of various data structures and algorithms 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/ts-algo-lib.git
+git clone https://github.com/Slygriyrsk/ts-algo-lib.git
 cd ts-algo-lib
 ```
 2. Install dependencies:
